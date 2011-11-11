@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               ZCS-Admin
-version:            0.06
+version:            0.07
 abstract:           module for the Zimbra Collaboration Suite (ZCS) Admin web services
 author:
     - Phil Pearl <phil@zimbra.com>

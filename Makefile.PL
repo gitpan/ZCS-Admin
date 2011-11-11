@@ -21,8 +21,8 @@ sub postamble {
 
     return <<'MAKE_MODULES';
 
-wsdl2perl: etc/Makefile
-	cd etc && $(MAKE)
+wsdl2perl: src/Makefile
+	cd src && $(MAKE)
 
 MAKE_MODULES
 

@@ -10,5 +10,5 @@
   'context/change' => 'ZCS::Admin::Types::ChangeSpecifier',
   'context/targetServer' => 'SOAP::WSDL::XSD::Typelib::Builtin::string',
   'context/userAgent' => 'ZCS::Admin::Types::UserAgentSpecifier',
-  'context/dl' => 'ZCS::Admin::Types::DlSpecifier',
+  'context/dl' => 'ZCS::Admin::Types::GetDlSpecifier',
 );

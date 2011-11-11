@@ -7,7 +7,7 @@ use URI qw();
 use ZCS::Admin::Interfaces::Admin::AdminSoap12 ();
 
 #OFF use SOAP::Lite ( +trace => "debug" );
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =head1 NAME
 
@@ -905,7 +905,6 @@ sub get_from_a {
     my ( $self, $ra, @item ) = @_;
 
     return undef unless $ra;
-    return undef unless @item;
 
     my %want = map { lc($_) => $_ } @item;
     my %data;
@@ -913,11 +912,11 @@ sub get_from_a {
     foreach my $at ( @{ $ra || [] } ) {
         my $name = lc( $at->attr->get_n );
         my $want = defined $want{$name} ? $want{$name} : undef;
-        push( @{ $data{$name} }, $at ) if ( defined $want );
+        push( @{ $data{$name} }, $at ) if ( !@item || defined($want) );
     }
 
     # got more than 1 item or %data has multiple keys?
-    if ( @item > 1 or keys(%data) > 1 ) {
+    if ( !@item or @item > 1 or keys(%data) > 1 ) {
         return wantarray ? %data : \%data;
     }
     else {
